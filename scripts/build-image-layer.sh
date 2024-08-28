@@ -42,9 +42,9 @@ deps() {
     tee crates/core/result/src/lib.rs
   
   if [ -z "$TARGETARCH" ]; then
-    cargo build --locked --release
+    RUST_LOG=debug cargo build --locked --release
   else
-    cargo build --locked --release --target "${BUILD_TARGET}"
+    RUST_LOG=debug cargo build --locked --release --target "${BUILD_TARGET}"
   fi
 }
 
